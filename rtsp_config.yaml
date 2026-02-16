@@ -1,0 +1,37 @@
+camera:
+  source_type: rtsp
+  device_index: 0
+  file_path: ""
+  rtsp_url: "rtsp://admin:admin@192.168.1.164:8554/live"
+  http_url: ""
+  width: 1280
+  height: 720
+  fps: 30
+  use_gstreamer: false
+  latency_ms: 80
+  csi_sensor_id: 0
+  rtsp_decoder: cpu # CPU decode for PC testing
+
+model:
+  backend: torch
+  weights_path: "c:/Users/youss/OneDrive/Desktop/youssef/fire_smoke_detection/firesmokev1.pt"
+  input_size: 640
+  conf_thres: 0.15
+  iou_thres: 0.45
+  class_names: "smoke,fire"
+  use_half: false
+  onnx_providers: null
+
+temporal:
+  ema_alpha: 0.3
+  on_threshold: 0.2
+  off_threshold: 0.1
+  on_frames: 1
+  off_frames: 1
+  motion_gate: false
+  motion_threshold: 0.08
+  high_conf_bypass: 0.85
+
+runtime:
+  display: true
+  queue_size: 2
